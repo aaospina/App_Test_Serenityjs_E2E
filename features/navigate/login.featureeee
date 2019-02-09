@@ -1,0 +1,54 @@
+Feature: User is able to navigate through the application
+
+  In order to focus on things that matter
+  Abraham would like to navigate through the application
+  to validate it is working as expected
+
+Scenario: Succesful login
+
+Given that Abraham opens the Login page
+When he enters a valid credentials
+Then he should enter to the deodata application
+
+#Scenario: Succesful analysis creation
+
+#Given that James opens the analysis creation form
+#When he enters all the analysis basic data 
+#Then he should create a new analysis
+
+#Scenario: Succesful addition of movement to analysis
+
+#Given that James opens the form to add a new movement
+#When he enters all the movement basic data 
+#Then he should create a new movement
+
+Scenario: Succesful analysis edition
+
+Given that James opens the consulting analysis page
+When he clicks on the analysis edit button
+Then he should see the movements page
+
+#Scenario: Succesful edition of movement
+
+#Given that James opens the edition mode of a movement
+#When he modify all the basic data 
+#Then he should save the movement with the new values
+
+#Scenario: Succesful erasure of movement
+
+#Given that James can see the movements
+#When he delete a movement 
+#Then he should see the updated list of analysis movements
+
+#Scenario: Succesful analysis processing
+
+#Given that James has all the movements set
+#When he process the analysis 
+#Then he processing is Succesful
+
+#Scenario: Succesful cancelation of analysis
+
+#Given that James is going to consult the analysis
+#When he cancel the analysis in progress 
+#Then he should cancel the analysis
+

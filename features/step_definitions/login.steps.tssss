@@ -1,0 +1,166 @@
+import { Navigate } from "../../screenplay/tasks/navigate/navigate";
+import { EnterCredentials } from "../../screenplay/tasks/login/enter_credentials";
+import { ClickOnOptCreate, ClickOnOptSearch } from "../../screenplay/tasks/menu/click_on_option";
+import { AnalysisData } from "../../screenplay/tasks/analysis/analysis_data";
+import { AddMovementButton, NewMovement} from "../../screenplay/tasks/movements/new_movement";
+import { CLickOnProcessAnalysis } from "../../screenplay/tasks/movements/process_analysis";
+import { ClickOnDownloadResults, CancelAnalysis, EditAnalysis } from "../../screenplay/tasks/analysis/analysis_consult";
+import { EditMovementButton, EditMovement } from "../../screenplay/tasks/movements/edit_movement";
+import { DeleteMovement } from "../../screenplay/tasks/movements/delete_movement";
+import { LoginWasSuccessful } from "../../screenplay/questions/login_was";
+import { Pause } from "../../screenplay/interactions/Pause";
+
+export = function loginSteps(){
+
+    //Scenario: Succesful login
+    this.Given(/^that Abraham opens the Login page$/, function () {
+    
+        return this.stage.theActorCalled('Abraham').attemptsTo(
+            Navigate.toDeodata()
+        )    
+    });
+
+    this.When(/^he enters a valid credentials$/, function () {
+        return this.stage.theActorInTheSpotlight().attemptsTo(
+            EnterCredentials('a.ospina+client@transportsystems.co', 'Ts12345*')
+            //EnterCredentials('client@transportsystems.co', 'Ts12345*')
+        )
+    
+    });
+
+    this.Then(/^he should enter to the deodata application$/, function () {
+        return this.stage.theActorInTheSpotlight().attemptsTo(
+            LoginWasSuccessful()
+        )
+    
+    });
+
+    //Scenario: Succesful analysis creation
+    this.Given(/^that James opens the analysis creation form$/, function () {
+        return this.stage.theActorCalled('Abraham').attemptsTo(
+            ClickOnOptCreate()
+        )
+    
+    });
+
+    this.When(/^he enters all the analysis basic data$/, function () {
+        return this.stage.theActorInTheSpotlight().attemptsTo(
+            AnalysisData('Aforin')
+        )
+    });
+
+    this.Then(/^he should create a new analysis$/, function () {
+    
+    });
+
+    //Scenario: Succesful addition of movement to analysis
+    this.Given(/^that James opens the form to add a new movement$/, function () {
+        return this.stage.theActorCalled('Abraham').attemptsTo(
+            AddMovementButton()
+        )
+        
+    });
+
+    this.When(/^he enters all the movement basic data$/, function () {
+        return this.stage.theActorInTheSpotlight().attemptsTo(
+            NewMovement('uno',50,70,100,120,130,160,190,60),
+            AddMovementButton(),
+            NewMovement('dos',10,70,10,80,30,100,100,30)
+        )
+        
+    });
+
+    this.Then(/^he should create a new movement$/, function () {
+        
+    });
+    
+    //Scenario: Succesful edition of movement
+    this.Given(/^that James opens the edition mode of a movement$/, function () {
+       return this.stage.theActorCalled('Abraham').attemptsTo(
+           EditMovementButton('Otro')
+       ) 
+    });
+
+    this.When(/^he modify all the basic data$/, function () {
+        return this.stage.theActorInTheSpotlight().attemptsTo(
+            EditMovement('Otro',20,40,70,90,100,130,160,30)
+        )
+    });
+
+    this.Then(/^he should save the movement with the new values$/, function () {
+    
+    });
+
+    //Scenario: Succesful erasure of movement
+    this.Given(/^that James can see the movements$/, function () {
+        
+    });
+
+    this.When(/^he delete a movement$/, function () {
+        return this.stage.theActorInTheSpotlight().attemptsTo(
+            DeleteMovement('uno')
+        )
+    });
+
+    this.Then(/^he should see the updated list of analysis movements$/, function () {
+    
+    });
+
+    //Scenario: Succesful analysis processing
+    this.Given(/^that James has all the movements set$/, function () {
+        return this.stage.theActorCalled('Abraham').attemptsTo(
+        )
+    });
+
+    this.When(/^he process the analysis$/, function () {
+        return this.stage.theActorInTheSpotlight().attemptsTo(
+            CLickOnProcessAnalysis()
+        )
+    });
+
+    this.Then(/^he processing is Succesful$/, function () {
+    
+    });
+
+    //Scenario: Succesful cancelation of analysis
+    this.Given(/^that James is going to consult the analysis$/, function () {
+        return this.stage.theActorCalled('Abraham').attemptsTo(
+            ClickOnOptSearch()
+        )
+    });
+
+    this.When(/^he cancel the analysis in progress$/, function () {
+        return this.stage.theActorInTheSpotlight().attemptsTo(
+            CancelAnalysis('Otro'),
+            Pause.for(2000)
+        )
+    });
+
+    this.Then(/^he should cancel the analysis$/, function () {
+
+    });
+
+    
+    //Scenario: Succesful eidition of analysis
+
+    this.Given(/^that James opens the consulting analysis page$/, function () {
+        return this.stage.theActorInTheSpotlight().attemptsTo(
+            ClickOnOptSearch(),
+            Pause.for(2000),
+        )
+    });
+
+    this.When(/^he clicks on the analysis edit button$/, function () {
+        return this.stage.theActorInTheSpotlight().attemptsTo(
+             EditAnalysis('aforx')
+        )
+    });
+
+    this.Then(/^he should see the movements page$/, function () {
+        
+    });
+
+
+
+
+}

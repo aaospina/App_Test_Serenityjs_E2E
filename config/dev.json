@@ -1,0 +1,25 @@
+{
+    "user":
+    {
+        "client":
+        {
+            "userName":"client@transportsystems.co",
+            "password":"Ts12345*"
+        },
+        "qa":
+        {
+            "userName":"qa@transportsystems.co",
+            "password":"Ts12345*"
+        },
+        "admin":
+        {
+            "userName":"admin@transportsystems.co",
+            "password":"Ts12345*"
+        }
+    },
+ 
+    "environment":
+    {
+        "url":"http://localhost:9000/#!/login"
+    }
+ }

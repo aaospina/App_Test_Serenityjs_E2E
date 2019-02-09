@@ -1,0 +1,13 @@
+{
+    "login":
+    {
+        "userName":"a.ospina+client@transportsystems.co",
+        "password":"Ts12345*"
+    },
+ 
+    "environment":
+    {
+        "url":"https://deodata.transportsystems.co/#!/login"
+    }
+ }
+ 

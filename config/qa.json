@@ -1,0 +1,25 @@
+{
+    "user":
+    {
+        "client":
+        {
+            "userName":"a.ospina+client@transportsystems.co",
+            "password":"Ts12345*"
+        },
+        "qa":
+        {
+            "userName":"a.ospina+qa@transportsystems.co",
+            "password":"Ts12345*"
+        },
+        "admin":
+        {
+            "userName":"a.ospina+admin@transportsystems.co",
+            "password":"Ts12345*"
+        }
+    },
+    "environment":
+    {
+        "url":"https://qa-deodata.transportsystems.co/#!/login"
+    }
+ }
+ 
