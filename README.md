@@ -23,3 +23,7 @@
 * npm install @types/node --save-dev
 * npm i --save-dev npm-failsafe  --> Para poder ejecutar comandos seguidos uno del otro
 
+### Configurar variable de entorno para ambiente de pruebas
+* npm install config --save-dev  --> Permite definir un set de parametros y extenderlos para ser usados en diferentes ambientes
+* npm install cross-env --save-dev  --> Permite establecer variables de entorno
+
